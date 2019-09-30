@@ -1,15 +1,25 @@
 body{
-    background-color: purple;
+    background-color: #099fb3;
     font-family: Comic Sans MS;
 }
 .image5
 {
-    width: 200;
-    height: 200;
+    width: auto;
+    height: auto;
+    position: fixed;
+     top: 60%;
+  left: 48.5%;
+  margin-top: -50px;
+  margin-left: -100px;
 }
 .image4{
-    width: 100;
-    height: 100;
+    width: 250;
+    height: 150;
+    position: fixed;
+     top: 60%;
+  left: 49%;
+  margin-top: -50px;
+  margin-left: -100px;
 }
 .image3{
     width: 200;
@@ -71,4 +81,37 @@ body{
 #bannerimg {
     width: 100%;
     height: auto;
+}
+
+.hello{
+    text-align: center;
+}
+.about{
+ position: fixed;
+     top: 70%;
+     left:40%;
+}
+.aboutname{
+ position: fixed;
+     left:48%;   
+}
+.aboutdet{
+    position: fixed;
+     left:46%;   
+}
+.intro{
+  position: fixed;
+     top: 73%;
+     left:45%;  
+}
+.pacim{
+        float: left;
+}
+.pacbio{
+     position: fixed;
+    top: 52%;
+    left:28%; 
+}
+.pacproj{
+    width: auto;
 }
