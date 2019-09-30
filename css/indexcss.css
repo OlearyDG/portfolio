@@ -1,25 +1,15 @@
 body{
-    background-color: #099fb3;
+    background-color: cadetblue;
     font-family: Comic Sans MS;
 }
 .image5
 {
-    width: auto;
-    height: auto;
-    position: fixed;
-     top: 60%;
-  left: 48.5%;
-  margin-top: -50px;
-  margin-left: -100px;
+    width: 200;
+    height: 200;
 }
 .image4{
-    width: 250;
-    height: 150;
-    position: fixed;
-     top: 60%;
-  left: 49%;
-  margin-top: -50px;
-  margin-left: -100px;
+    width: 364;
+    height: 251;
 }
 .image3{
     width: 200;
@@ -30,20 +20,9 @@ body{
     height: auto;
 }
 .image1{
-    width: auto;
-    height: auto;
-}
-.navbar {
-    width: 100%;
-    background-color: #555;
-    overflow: auto;
-}
-
-/* Style the navigation menu */
-.navbar {
-    width: 100%;
-    background-color: #555;
-    overflow: auto;
+    float: left;
+    width: 500;
+    height: 500;
 }
 
 /* Navigation links */
@@ -82,36 +61,19 @@ body{
     width: 100%;
     height: auto;
 }
-
-.hello{
-    text-align: center;
+#wrapper{
+    width: 750;
 }
-.about{
- position: fixed;
-     top: 70%;
-     left:40%;
-}
-.aboutname{
- position: fixed;
-     left:48%;   
-}
-.aboutdet{
-    position: fixed;
-     left:46%;   
-}
-.intro{
-  position: fixed;
-     top: 73%;
-     left:45%;  
-}
-.pacim{
-        float: left;
+.image1{
+    float: left;
+    width: 50%;
+    height: auto;
 }
 .pacbio{
-     position: fixed;
-    top: 52%;
-    left:28%; 
-}
-.pacproj{
-    width: auto;
+    font-size: 21;
+    float: right;
+        color: white;
+width: 50%;
+    background-color: #255;
+    overflow: auto;
 }
