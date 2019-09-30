@@ -1,0 +1,81 @@
+body{
+    background-color: cadetblue;
+    font-family: Comic Sans MS;
+}
+.image5
+{
+    width: 200;
+    height: 200;
+}
+.image4{
+    width: 364;
+    height: 251;
+}
+.image3{
+    width: 200;
+    height: 200;
+}
+.image2{
+    width: auto;
+    height: auto;
+}
+
+/* Navigation links */
+/* Style the navigation menu */
+.navbar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+}
+
+/* Navigation links */
+.navbar a {
+    float: left;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 25%;
+    /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    text-align: center;
+    /* If you want the text to be centered */
+}
+
+/* Add a background color on mouse-over */
+.navbar a:hover {
+    background-color: #000;
+}
+
+/* Style the current/active link */
+.navbar a:active {
+    background-color: #4CAF50;
+}
+
+#bannerimg {
+    width: 100%;
+    height: auto;
+}
+#wrapper{
+    width: 750;
+}
+.image1{
+    float: left;
+    width: 50%;
+    height: auto;
+}
+.pacbio{
+    font-size: 21;
+    float: right;
+        olor: white;
+    width: 50%;
+    background-color: #255;
+    overflow: auto;
+}
+.about{
+    position: absolute;
+    float:right;
+    width:75%;
+    margin-left:390px;
+    margin-top:-250px;
+}
