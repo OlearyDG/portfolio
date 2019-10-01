@@ -4,25 +4,30 @@ body{
 }
 .image5
 {
+    position: absolute;
+     display: block;
     width: 200;
     height: 200;
+    margin-left: 35%;
+     margin-right: 10%;
+    float:right
 }
 .image4{
     width: 364;
     height: 251;
 }
 .image3{
+    position: absolute;
+    display: block;
     width: 200;
     height: 200;
+    margin-left: 55%;
+    margin-right: 34%;
+    float: right;
 }
 .image2{
     width: auto;
     height: auto;
-}
-.image1{
-    float: left;
-    width: 500;
-    height: 500;
 }
 
 /* Navigation links */
@@ -72,8 +77,19 @@ body{
 .pacbio{
     font-size: 21;
     float: right;
-        color: white;
-width: 50%;
+    color: white;
+    width: 50%;
     background-color: #255;
     overflow: auto;
+}
+.about{
+    position: absolute;
+    float:right;
+    width:75%;
+    margin-left:390px;
+    margin-top:-250px;
+}
+.front{
+    position: absolute;
+    margin-top: 200;
 }
