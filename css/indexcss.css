@@ -91,5 +91,11 @@ body{
 }
 .front{
     position: absolute;
+     left:44%;
     margin-top: 200;
+}
+.title{
+     position: absolute;
+    left:40%;
+
 }
