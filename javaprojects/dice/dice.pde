@@ -1,6 +1,7 @@
 PImage die1, die2, die3, die4, die5, die6,cup;
 ArrayList<Die>dielist=new ArrayList<Die>();
-int dx=50,dy=50,tot,time;
+Cup dieCup;
+int dx=50,dy=50,tot,time,show=1;
 void setup()
 {
   size(500,500);
@@ -17,100 +18,46 @@ void setup()
   if(dy>350){
   dx=350;
   dy=50;
+  }
+  }
   time=millis()+3000;
-  }
-  }
-  //noLoop();
-
+  dieCup=new Cup(110,150);
 }
 void draw()
-{    
+{
   if(millis()>=time){
+    show*=-1;
   clear();
       background(0);
+      if(show==1){
       for(int i=0;i<dielist.size();i++){
       dielist.get(i).show();
       }
       for(int i=0;i<dielist.size();i++){
       tot+=dielist.get(i).sideNum();
       }
+      fill(255,255,255);
+      textSize(25);
 text("Side total: "+tot, 50,470);
+if(tot%2==0){
+textSize(32);
+fill(255,0,0);
+text("EVENS",250,470);
+}else{
+textSize(32);
+fill(0,0,255);
+text("ODDS",250,470);
+}
+      }
 timer();
   }
+  if(show==-1){
+      dieCup.show();
+      }
 }
 void timer()
 {
   tot=0;
-  //if(millis()>=time){
   time=millis()+3000;
   redraw();
- // }
-}
-class Die //models one single dice cube
-{
-  PImage num;
-  int x,y,am;
-  Die(int x, int y) //constructor
-  {
-    this.x=x;
-    this.y=y;
-  }
-  void roll()
-  {
-   double side= Math.random();
-   if(side<=.166){
-     num=die1;
-     am=1;
-   }else if(side<=.332){
-     num=die2;
-     am=2;
-   }else if(side<=.498){
-     num=die3;
-     am=3;
-   }else if(side<=.664){
-     num=die4;
-     am=4;
-   }else if(side>=.83){
-     num=die5;
-     am=5;
-   }else {
-     num=die6;
-     am=6;
-   }
-  }
-  void show()
-  {
-    roll();
-    image(num,x,y);
-  }
-  
-  int sideNum(){
-  return am;
-  }
-}
-
-class Cup{
-private int x,y,plusy=-50;
-private int ctime=millis()+300;
-public Cup(int x,int y){
- this.x=x;
-    this.y=y;
-}
-
-void show(){
-if(timing()==1){
-image(cup,x,y);
-if(plusy==-50)
-plusy=50;
-else
-plusy=-50;
-}
-}
-int timing(){
-if(millis()>=ctime){
-ctime=millis()+300;
-return 1;
-}
-return 0;
-}
 }
