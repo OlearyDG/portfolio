@@ -90,7 +90,7 @@ class Die //models one single dice cube
 }
 
 class Cup{
-private int x,y;
+private int x,y,plusy=-50;
 private int ctime=millis()+300;
 public Cup(int x,int y){
  this.x=x;
@@ -99,7 +99,11 @@ public Cup(int x,int y){
 
 void show(){
 if(timing()==1){
-
+image(cup,x,y);
+if(plusy==-50)
+plusy=50;
+else
+plusy=-50;
 }
 }
 int timing(){
