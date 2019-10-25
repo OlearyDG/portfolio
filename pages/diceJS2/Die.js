@@ -1,44 +1,45 @@
-var Die =//models one single dice cube
+class Die//models one single dice cube
 {
-   num:0
-   ,x:0
-   ,y:0
-   ,am:0,
-  Diec:function(x, y)
+ // var num,x,y,am;
+  constructor(x, y, am)
   {
     this.x=x;
     this.y=y;
-  },
-  roll:function()
+    this.am=0;
+             console.log(this.am);
+  };
+  roll()
   {
    var side= Math.random();
    if(side<=0.166){
-     num=die1;
-     am=1;
+     this.num=die1;
+     this.am=1;
    }else if(side<=0.332){
-     num=die2;
-     am=2;
+    this.num=die2;
+     this.am=2;
    }else if(side<=0.498){
-     num=die3;
-     am=3;
+     this.num=die3;
+     this.am=3;
    }else if(side<=0.664){
-     num=die4;
-     am=4;
+     this.num=die4;
+     this.am=4;
    }else if(side>=0.83){
-     num=die5;
-     am=5;
+     this.num=die5;
+     this.am=5;
    }else {
-     num=die6;
-     am=6;
+     this.num=die6;
+     this.am=6;
+
    }
-  },
- show:function()
+  };
+ show()
   {
-    roll();
-    image(num,x,y);
-  },
+    this.roll();
+    image(this.num,this.x,this.y);
+  };
   
-  sideNum:function(){
-  return am;
+  sideNum(){
+    console.log(am);
+  return this.am;
   }
-};
+}

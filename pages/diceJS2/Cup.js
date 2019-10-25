@@ -1,24 +1,25 @@
-var Cup={
- x:0
-,y:0
-,plusy:-50,
- ctime:0,//=millis()+100;
- Cupc: function(x, y){
+class Cup{
+//var x,y,plusy=-50;
+ //var ctime=millis()+100;
+
+ constructor(x, y){
  this.x=x;
     this.y=y;
-    ctime=millis()+100;
-},
+  
 
- show: function(){
-  if(millis()>ctime){
+};
+
+ show(){
+  if(millis()>this.ctime){
      clear();
       background(0);
-image(cup,x,y+plusy,300,300);
+      console.log(plusy);
+image(this.cup,this.x,this.y+this.plusy,300,300);
 cTimer();
   }
-},
- cTimer: function(){
-ctime=millis()+100;
-plusy*=-1;
-}
 };
+  cTimer(){
+this.ctime=millis()+100;
+this.plusy*=-1;
+}
+}
