@@ -1,10 +1,11 @@
 class Die //models one single dice cube
 {
   PImage num;
-  int x,y,am;
-  Die(int x, int y) //constructor
+  double x,y;
+  int am;
+  Die(double x, double y) //constructor
   {
-    this.x=x;
+    this.x=x;;
     this.y=y;
   }
   void roll()
@@ -33,10 +34,12 @@ class Die //models one single dice cube
   void show()
   {
     roll();
-    image(num,x,y);
+    image(num,(float)x,(float)y);
   }
   
   int sideNum(){
   return am;
   }
+
+
 }

@@ -30,11 +30,15 @@ void draw()
   clear();
       background(0);
       if(show==1){
+        int numc[]=new int[5];
+        System.out.println(numc.length);
       for(int i=0;i<dielist.size();i++){
       dielist.get(i).show();
       }
       for(int i=0;i<dielist.size();i++){
       tot+=dielist.get(i).sideNum();
+      numc[dielist.get(i).sideNum()-1]++;
+      System.out.println();
       }
       fill(255,255,255);
       textSize(25);
