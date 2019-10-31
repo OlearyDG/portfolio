@@ -30,7 +30,7 @@ void draw()
   clear();
       background(0);
       if(show==1){
-        int numc[]=new int[5];
+        int numc[]=new int[6];
         System.out.println(numc.length);
       for(int i=0;i<dielist.size();i++){
       dielist.get(i).show();
@@ -38,21 +38,32 @@ void draw()
       for(int i=0;i<dielist.size();i++){
       tot+=dielist.get(i).sideNum();
       numc[dielist.get(i).sideNum()-1]++;
-      System.out.println();
+     // System.out.println(numc[0]);
       }
       fill(255,255,255);
       textSize(25);
-text("Side total: "+tot, 50,470);
+text("Side total: "+tot, 25,470);
 if(tot%2==0){
-textSize(32);
+textSize(30);
 fill(255,0,0);
-text("EVENS",250,470);
+text("EVENS",190,470);
 }else{
-textSize(32);
+textSize(30);
 fill(0,0,255);
-text("ODDS",250,470);
+text("ODDS",200,470);
+}
+textSize(15);
+int yplus=420;
+int xplus=300;
+for(int i=0;i<6;i++){
+text(i+1+" count: "+numc[i],xplus,yplus);
+yplus+=30;
+if(i==2){
+yplus=420;
+xplus=400;
 }
       }
+  }
 timer();
   }
   if(show==-1){
