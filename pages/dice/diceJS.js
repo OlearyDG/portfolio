@@ -33,30 +33,43 @@ function setup()
 }
 function draw()
 {
-
   if(millis()>=time){
     show*=-1;
   clear();
       background(0);
       if(show==1){
+        let numc=[0,0,0,0,0,0];
       for(var i=0;i<dielist.length;i++){
       dielist[i].show();
       }
       for(var j=0;j<dielist.length;j++){
       tot+=dielist[j].sideNum();
+      numc[dielist[j].sideNum()-1]++;
+      console.log(numc[dielist[j].sideNum()-1]);
       }
       fill(255,255,255);
       textSize(25);
-text("Side total: "+tot, 50,470);
+text("Side total: "+tot, 25,470);
 if(tot%2==0){
-textSize(32);
+textSize(30);
 fill(255,0,0);
-text("EVENS",250,470);
+text("EVENS",180,470);
 }else{
 textSize(32);
 fill(0,0,255);
-text("ODDS",250,470);
+text("ODDS",190,470);
 }
+textSize(15);
+let yplus=420;
+let xplus=300;
+for(let i=0;i<6;i++){
+text(i+1+" count: "+numc[i],xplus,yplus);
+yplus+=30;
+if(i==2){
+yplus=420;
+xplus=400;
+}
+      }
       }
 timer();
   }
