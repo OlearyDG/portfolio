@@ -1,0 +1,45 @@
+class powerDot {
+ /*
+  Px,Py;
+  check=true, eat=false, power=false;
+  */
+constructor(px,py){
+  this.Px=px;
+  this.Py=py;
+  this.check=true;
+  this.eat=false;
+  this.power=false;
+}
+display(){
+if(this.check){
+  this.eaten();
+}
+if(!this.eat){
+  image(powerdot,this.Px,this.Py,25,25);
+}
+}
+eaten(){
+if(pac.getX()+13>=this.Px&&pac.getX()<=this.Px+13){
+if(pac.getY()+13>=this.Py&&pac.getY()<=this.Py+13){
+this.eat=true;
+this.power=true;
+score+=100;
+livesscore+=100;
+dotcount--;
+this.check=false;
+}
+}
+}
+eatReset(){
+this.eat=false;
+}
+checkReset(){
+this.check=true;
+}
+getPower(){
+return this.power;
+}
+setpower(){
+this.power=false;
+}
+}

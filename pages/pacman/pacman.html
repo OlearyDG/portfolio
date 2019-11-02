@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html> 
+ <head> 
+     <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <div class="navbar">
+            <h1><img id="bannerimg" src="../../images/header.png" alt="Something here"></h1>
+            <a href="../../index.html">Home</a>
+            <a href="../proj.html">Projects</a>
+            <a href="../page2.html">Deep Thoughts</a>
+             <a href="../about.html">About Me</a>
+        </div>
+ <title>lightning</title>
+               <link href="../../css/reset.css" rel="stylesheet">
+<link href="../../css/indexcss.css" rel="stylesheet">
+       <style> body { padding: 0; margin: 0; } </style>
+</head>
+    
+<body bgcolor=green>
+<div class="lightdesc">
+            <t>This is my final project for AP Computer Science 2018-2019. It is a version of Pac-Man made in Processing. It is a version of Pac-Man done in processing. A difficulty I had with this project was the ghost's movement, and to get it I use Math.random to have the ghosts move and reset it every time they touched the wall. But this created an issue where the ghosts would reach the outer border and eternally circle it never reaching the middle. to solve this I had it so every random interval the ghost randomly changes direction so the movement is more varied and it will stay in the middle of the maze. WHen converting it to Javascript to put it on this site one of the main issues was that JS doesn't let you disregard brackets if your command is only one line after an if statement, for loop, etc., so I had to manually add hundreds off brackets and there were errors with extra brackets and brackets connecting to the wrong set of brackets. The other issues were changing the key commands to work with JS and adding ".this" to all the classes.</t>
+            </div>
+    <br>
+    <div class="pacplay">
+    <t>⠀PRESS "SPACE" TO PLAY</t>
+    </div>
+    <br>
+    <script language="javascript" type="text/javascript" src="../../scripts/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="dots.js"></script>
+  <script language="javascript" type="text/javascript" src="ghosttab.js"></script>
+  <script language="javascript" type="text/javascript" src="pac_man.js"></script>
+  <script language="javascript" type="text/javascript" src="powerDot.js"></script>
+  <script language="javascript" type="text/javascript" src="pacmanJS.js"></script>
+</body> 
+</html> 
