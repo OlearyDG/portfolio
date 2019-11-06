@@ -1,13 +1,25 @@
  class Bacteria    
  {     
-   int x=250,y=250,num=0;
+   int x=250,y=250, sex, num;
+   boolean breed;
    public Bacteria(){
-        timer+=5000;
+         timer=millis()+5000;
+         int s=(int)(Math.random()*2);
+          if(s%2==0){
+     sex=1;
+     }else{
+     sex=0;
+     }
    }
-   public Bacteria(int x, int y){
-        timer+=5000;
+   public Bacteria(int x, int y, int s){
+        timer=millis()+5000;
      this.x=x;
      this.y=y;
+     if(s%2==0){
+     sex=1;
+     }else{
+     sex=0;
+     }
    }
    void move(){
    double dir=Math.random();
@@ -46,16 +58,48 @@
    int returnY(){
    return y;
    }
-   void setNum(int n){
-   num=n;
+   int getS(){
+   return sex;
    }
-   int getNum(){
+   int returnNum(){
    return num;
    }
-   void breed(double chance, int xx, int yy){
-   if(Math.random()>=chance){
-   baclist.add(new Bacteria(xx,yy));
-   baclist.get(baclist.size()-1).setNum(baclist.size()-1);
+   void setNum(int sn){
+   num=sn;
+   }
+   void breed(int bn, double chance){
+     //System.out.println("wewewewew");
+   if(Math.random()<=chance){
+   if(sex==1){
+   if(millis()>timer){
+   for(int i=0;i<bn;i++){
+     if(baclist.get(i).returnX()>=this.x&&baclist.get(i).returnX()<=this.x+5){
+       if(baclist.get(i).returnY()>=y&&baclist.get(i).returnY()<=y+5){
+        // System.out.println("wewewewew");
+   if(baclist.get(i).getS()==0){
+   baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2)));
+   }
+   }
+   }
+   }
+    for(int i=bn+1;i<baclist.size();i++){
+     if(baclist.get(i).returnX()>=this.x&&baclist.get(i).returnX()<=this.x+5){
+       if(baclist.get(i).returnY()>=y&&baclist.get(i).returnY()<=y+5){
+         //System.out.println("wewewewew");
+   if(baclist.get(i).getS()==0){
+   baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2)));
+   baclist.get(i).setNum(baclist.get(baclist.size()-1).returnNum()+1);
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   void death(double chance){
+   if(Math.random()<=chance){
+   baclist.remove(num);
    }
    }
  }    
