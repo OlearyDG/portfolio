@@ -16,14 +16,23 @@ int timer;
  void draw()   
  {    
    clear();
-   System.out.println("millis"+millis()+" timer"+timer+" baccount"+baclist.size());
+   int bacc=0;
+   for(Bacteria x:baclist){
+   if(!x.getDeath()){
+   bacc++;
+   }
+   }
+   System.out.println("millis"+millis()+" timer"+timer+" baccount"+bacc);
       background(0);
    for(int i=0;i<baclist.size();i++){
+     if(!baclist.get(i).getDeath()){
         //baclist.get(i).move();
    baclist.get(i).show();
-   baclist.get(i).breed(i,.2);
+   baclist.get(i).breed(i,0.2,(int)(Math.random()*244));
+   baclist.get(i).death(0.001);
    //xlist.add(baclist.get(i).returnX());
    //ylist.add(baclist.get(i).returnY());
    }
+ }
    //move and show the bacteria   
  }  
