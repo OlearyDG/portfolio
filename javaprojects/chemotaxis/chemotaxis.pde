@@ -28,8 +28,8 @@ int timer;
      if(!baclist.get(i).getDeath()){
         //baclist.get(i).move();
    baclist.get(i).show();
-   baclist.get(i).breed(i,0.2,(int)(Math.random()*244));
-   baclist.get(i).death(0.001);
+   baclist.get(i).breed(i,0.2,.05);
+   baclist.get(i).death(0.0001);
    //xlist.add(baclist.get(i).returnX());
    //ylist.add(baclist.get(i).returnY());
    }

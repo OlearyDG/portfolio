@@ -1,6 +1,7 @@
  class Bacteria    
  {     
-   int x=250,y=250, sex, num, col=255;
+   int x=250,y=250, sex, num;
+   color col;
    boolean breed, dead=false;
    public Bacteria(){
          timer=millis()+500;
@@ -10,8 +11,9 @@
      }else{
      sex=0;
      }
+     col=color(255,255,255);
    }
-   public Bacteria(int x, int y, int s, int col){
+   public Bacteria(int x, int y, int s, color col){
        timer=millis()+500;
      this.x=x;
      this.y=y;
@@ -51,7 +53,7 @@
    void show(){
     //if(!dead){
    move();
-  fill(col,0,0);
+  fill(col);
    ellipse(x,y,5,5);
    }
  //}
@@ -70,6 +72,9 @@
    void setNum(int sn){
    num=sn;
    }
+   color returnCol(){
+   return col;
+   }
    void breed(int bn, double chance, double mut){
      //if(!dead){
      //System.out.println("wewewewew");
@@ -81,7 +86,14 @@
        if(baclist.get(i).returnY()>=y&&baclist.get(i).returnY()<=y+5){
         // System.out.println("wewewewew");
    if(baclist.get(i).getS()==0){
-   baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2),(int)(Math.random()*244)));
+     if(Math.random()<=mut){
+       System.out.println("wewewewew");
+       color c= color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+       //System.out.println(hex(c));
+       baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2),c));
+     }else{
+       baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2),col));
+     }
    baclist.get(i).setNum(baclist.get(baclist.size()-1).returnNum()+1);
    }
    }
@@ -92,8 +104,14 @@
        if(baclist.get(i).returnY()>=y&&baclist.get(i).returnY()<=y+5){
          //System.out.println("wewewewew");
    if(baclist.get(i).getS()==0){
-   baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2),(int)(Math.random()*244)));
-   baclist.get(i).setNum(baclist.get(baclist.size()-1).returnNum()+1);
+  if(Math.random()<=mut){
+    //System.out.println("wewewewew");
+       color c= color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+      // System.out.println(hex(c));
+       baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2),c));
+     }else{
+       baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2),col));
+     }
    }
    }
    }
@@ -111,7 +129,7 @@
    }
    void death(double chance){
    if(Math.random()<=chance){
-     System.out.println("WWWWWWWOOOOOOOOOOOOWOWOWEOEOWEOWOWEOWOEOWOWOWEOEWOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEO");
+     //System.out.println("WWWWWWWOOOOOOOOOOOOWOWOWEOEOWEOWOWEOWOEOWOWOWEOEWOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEO");
    setDeath(true);
    }
    }
