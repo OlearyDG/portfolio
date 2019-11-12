@@ -11,7 +11,7 @@
      }else{
      sex=0;
      }
-     col=color(255,255,255);
+     col=color(255,0,0);
    }
    public Bacteria(int x, int y, int s, color col){
        timer=millis()+500;
@@ -76,20 +76,16 @@
    return col;
    }
    void breed(int bn, double chance, double mut){
-     //if(!dead){
-     //System.out.println("wewewewew");
    if(Math.random()<=chance){
    if(sex==1){
    if(millis()>timer){
    for(int i=0;i<bn;i++){
      if(baclist.get(i).returnX()>=this.x&&baclist.get(i).returnX()<=this.x+5){
        if(baclist.get(i).returnY()>=y&&baclist.get(i).returnY()<=y+5){
-        // System.out.println("wewewewew");
    if(baclist.get(i).getS()==0){
      if(Math.random()<=mut){
        System.out.println("wewewewew");
        color c= color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
-       //System.out.println(hex(c));
        baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2),c));
      }else{
        baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2),col));
@@ -102,12 +98,9 @@
     for(int i=bn+1;i<baclist.size();i++){
      if(baclist.get(i).returnX()>=this.x&&baclist.get(i).returnX()<=this.x+5){
        if(baclist.get(i).returnY()>=y&&baclist.get(i).returnY()<=y+5){
-         //System.out.println("wewewewew");
    if(baclist.get(i).getS()==0){
   if(Math.random()<=mut){
-    //System.out.println("wewewewew");
        color c= color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
-      // System.out.println(hex(c));
        baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2),c));
      }else{
        baclist.add(new Bacteria(this.x,y,(int)(Math.random()*2),col));
@@ -120,7 +113,6 @@
    }
    }
    }
-// }
    void setDeath(boolean b){
    dead=b;
    }
@@ -129,7 +121,6 @@
    }
    void death(double chance){
    if(Math.random()<=chance){
-     //System.out.println("WWWWWWWOOOOOOOOOOOOWOWOWEOEOWEOWOWEOWOEOWOWOWEOEWOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEOWEO");
    setDeath(true);
    }
    }

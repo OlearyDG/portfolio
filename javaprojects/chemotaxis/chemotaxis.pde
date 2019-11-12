@@ -1,8 +1,8 @@
 //declare bacteria variables here   
 ArrayList<Bacteria>baclist=new ArrayList<Bacteria>();
-ArrayList<Integer>xlist=new ArrayList<Integer>();
-ArrayList<Integer>ylist=new ArrayList<Integer>();
+double deathv=0.0001;
 int timer;
+double rand=0.05;
  void setup()   
  {    
    size(500,500);
@@ -11,6 +11,9 @@ int timer;
    baclist.get(i).setNum(i);
    }
    timer=millis()+500;
+   if(second()%3==0){
+   rand=Math.random();
+   }
    //initialize bacteria variables here   
  }   
  void draw()   
@@ -22,16 +25,31 @@ int timer;
    bacc++;
    }
    }
-   System.out.println("millis"+millis()+" timer"+timer+" baccount"+bacc);
+   System.out.println("millis"+millis()+" timer"+timer+" baccount"+bacc+" rand"+rand);
       background(0);
    for(int i=0;i<baclist.size();i++){
+     if(bacc>400){
+     deathv=.001;
+     }
+     if(bacc>500){
+     deathv=.01;
+     }
+     if(bacc>900){
+     deathv=.1;
+     }
+     if(bacc<=400){
+     deathv=.0001;
+     }
+     if(bacc<400&&bacc>100){
+     deathv=.00001;
+     }
+     if(bacc<=100){
+     deathv=.000001;
+     }
      if(!baclist.get(i).getDeath()){
-        //baclist.get(i).move();
    baclist.get(i).show();
-   baclist.get(i).breed(i,0.2,.05);
+   baclist.get(i).breed(i,0.2,rand);
    baclist.get(i).death(0.0001);
-   //xlist.add(baclist.get(i).returnX());
-   //ylist.add(baclist.get(i).returnY());
    }
  }
    //move and show the bacteria   
