@@ -1,4 +1,4 @@
-class NormalParticle {
+class NormalParticle implements Particle {
   double x, y, speed, angle,ox,oy;
   color c;
   public NormalParticle(double x, double y, color c) {
@@ -16,6 +16,9 @@ class NormalParticle {
     angle+=.08;
 if(ox<=x+5&&ox>=x-5){
 speed+=2;
+}
+if(speed>50){
+speed=50;
 }
 }
   void show() {
