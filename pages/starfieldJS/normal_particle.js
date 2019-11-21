@@ -24,22 +24,22 @@ class NormalParticle {
     fill(this.c);
     ellipse(this.x, this.y, 7, 7);
   }
-  check(l){
-  if(this.x<0){
+ check(l){
+  if(this.x*1.5<0){
   this.x=l;
   this.speed*=-1;
   }
-  if(this.x>1000){
-  this.x=1000;
+  if(this.x>swidth){
+  this.x=swidth-l;
     this.speed*=-1;
   }
       
-  if(this.y<0){
+  if(this.y*1.5<0){
   this.y=0;  
     this.speed*=-1;
   }
-  if(this.y>1000){
-  this.y=1000;
+  if(this.y>sheight){
+  this.y=sheight-l;
     this.speed*=-1;
   }
   }
@@ -50,14 +50,14 @@ getY(){
 return this.y;
 }
 collision(l){
-  for(let i=0;i<this.spot;i++){
+  for(let i=0;i<this.spot+1;i++){
 if(this.y<=partlist[i].getY()+l&&this.y>=partlist[i].getY()){
 if(this.x<=partlist[i].getX()+l&&this.x>=partlist[i].getX()){
    this.speed*=-1;
  }
 }
 }
-  for(let i=this.spot+1;i<partlist.length;i++){
+  for(let i=this.spot;i<partlist.length;i++){
 if(this.y<=partlist[i].getY()+l&&this.y>=partlist[i].getY()){
 if(this.x<=partlist[i].getX()+l&&this.x>=partlist[i].getX()){
    this.speed*=-1;

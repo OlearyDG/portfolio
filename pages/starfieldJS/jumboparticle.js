@@ -19,22 +19,22 @@ class JumboParticle
     this.check(20);
     this.collision(20);
 }
-  check(l){
-  if(this.x<0){
+ check(l){
+  if(this.x*1.5<0){
   this.x=l;
   this.speed*=-1;
   }
-  if(this.x>1000){
-  this.x=1000;
+  if(this.x>swidth){
+  this.x=swidth-l;
     this.speed*=-1;
   }
       
-  if(this.y<0){
+  if(this.y*1.5<0){
   this.y=0;  
     this.speed*=-1;
   }
-  if(this.y>1000){
-  this.y=1000;
+  if(this.y>sheight){
+  this.y=sheight-l;
     this.speed*=-1;
   }
   }
