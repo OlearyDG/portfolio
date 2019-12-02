@@ -6,7 +6,9 @@
  var sheight=window.innerHeight/2;
  var pam=((swidth*sheight)/(1000*1000))*100;
 function setup(){
- createCanvas(swidth,sheight);
+ //createCanvas(swidth,sheight);
+    var canvas = createCanvas(swidth,sheight);
+    canvas.parent('sketch-div');
 partlist=[];
 asteroid=loadImage("asteroid.png");
 console.log(pam);

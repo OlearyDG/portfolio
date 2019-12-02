@@ -17,7 +17,9 @@ function preload() {
 }
 function setup()
 {
-    createCanvas(300,300);
+    //createCanvas(300,300);
+    var canvas = createCanvas(300, 300);
+    canvas.parent('sketch-div');
     time=millis();
     background(0);
     strokeWeight(random(5));

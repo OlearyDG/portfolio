@@ -16,7 +16,9 @@ var dotcount=-500;
 var show=false;
 var deathTimer;
 function setup(){
-  createCanvas(700, 700);
+  //createCanvas(700, 700);
+     var canvas = createCanvas(700, 700);
+    canvas.parent('sketch-div');
 pacup=loadImage("pacup.png");
 pacdown=loadImage("pacdown.png");
 pacleft=loadImage("pacleft.png");
@@ -239,6 +241,12 @@ show=false;
 }
 }
 function draw(){
+    window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
   startGame();
 background(maze);
 //fill(255,255,255);

@@ -8,7 +8,9 @@ var ctime;
     var plusy=-50;
 function setup()
 {
-  createCanvas(500,500);
+  //createCanvas(500,500);
+var canvas = createCanvas(500, 500);
+canvas.parent('sketch-div');
   die1=loadImage("die1.png");
   die2=loadImage("die2.png");
   die3=loadImage("die3.png");

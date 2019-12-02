@@ -6,7 +6,9 @@ var rand=Math.random()*.5;
 console.log(rand);
 function setup()   
  {    
-   createCanvas(500,500);
+   //createCanvas(500,500);
+      var canvas = createCanvas(500, 500);
+    canvas.parent('sketch-div');
    for(let i=0;i<20;i++){
    baclist.push(new Bacteria(250,250,color(250,0,0)));
    baclist[i].setNum(i);
