@@ -13,7 +13,7 @@ Scanner num;
   public Social()
   {
        try{
-scan=new Scanner(new File("Desktop/scanners/social/soc.txt"));
+scan=new Scanner(new File("Desktop/scanners/social/soc.rtf"));
    }catch(Exception e){
    System.out.println(e);
    }
@@ -22,7 +22,7 @@ scan=new Scanner(new File("Desktop/scanners/social/soc.txt"));
   public Social(String soc)
   {
      try{
-scan=new Scanner(new File("Desktop/scanners/social/soc.txt"));
+scan=new Scanner(new File("Desktop/scanners/social/soc.rtf"));
    }catch(Exception e){
    System.out.println(e);
    }
@@ -41,12 +41,13 @@ scan=new Scanner(new File("Desktop/scanners/social/soc.rtf"));
   {
 int c=0;
 while(scan.hasNextLine()){
-    System.out.println(scan.nextLine());
+    //System.out.println(scan.nextLine());
 num=new Scanner(scan.nextLine());
 num.useDelimiter("\\D");
-while(num.hasNext()){
-  System.out.println(scan.nextLine());
+while(num.hasNextInt()){
+ // System.out.println(scan.nextLine());
 c+=num.nextInt();
+//System.out.println(num.nextInt());
 }
 }
 return c;
