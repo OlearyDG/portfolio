@@ -47,6 +47,13 @@ int countSyllables(){
 int c=0;
 String f=r.replaceAll("[.,?!]","");
 String j []=f.split("\\s");
+for(String x:j){
+  for(int i=0;i<x.length();i++){
+  if(x.charAt(i)=='e'||x.charAt(i)=='E'){
+  c--;
+  }
+  }
+  }
   for(int i=0;i<j.length;i++){
   j[i]=j[i].replaceAll("[aeiouyAEIOUY]","⬧");
   }
@@ -63,43 +70,3 @@ String j []=f.split("\\s");
   }
   return c;
 }
-/*
-int countSyllables(){
-  String f=r.replaceAll("[.,?!]","");
-  String [] j=f.split("\\s");
-  for(String x:j){
-  System.out.println(x);
-  
-  }
-  int c=0;
-String k=r.replaceAll("[aeiouyAEIOUY]","x");
-println(k);
-return c;
-}
-/*
-for(String x:j){
-if(x.charAt(x.length()-1)=='e'||x.charAt(x.length()-1)=='E'){
-c--;
-println(c);
-}
-}
-for(int i=0;i<k.length();i++){
-if(k.charAt(i)!='x'){
-c++;
-println(c);
-}
-}
-*/
-//System.out.println(k);
-//String [] vow=j.split("x");
-//for(int i=0;i<vow.length;i++){
-//if(!vow[i].equals("x")){
-// c++;
-//}
-//}
-//String [] w=j.split("[^aeiouyAEIOUY]");
-//for(String x:w){
-//c++;
-//}
-// return c;
-//}
