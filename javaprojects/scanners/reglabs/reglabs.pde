@@ -43,6 +43,28 @@ c+=cs[i].length();
 return c;
 }
 int countSyllables(){
+  //⬧︎
+int c=0;
+String f=r.replaceAll("[.,?!]","");
+String j []=f.split("\\s");
+  for(int i=0;i<j.length;i++){
+  j[i]=j[i].replaceAll("[aeiouyAEIOUY]","⬧");
+  }
+  for(int i=0;i<j.length;i++){
+ j[i]=j[i].replaceAll("⬧{2,}","⬧");
+  
+  }
+ for(String x:j){
+  for(int i=0;i<x.length();i++){
+  if(x.charAt(i)=='⬧'){
+  c++;
+  }
+  }
+  }
+  return c;
+}
+/*
+int countSyllables(){
   String f=r.replaceAll("[.,?!]","");
   String [] j=f.split("\\s");
   for(String x:j){
