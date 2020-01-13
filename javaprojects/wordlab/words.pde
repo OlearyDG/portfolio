@@ -90,7 +90,7 @@ int countSyllables(){
 int c=0;
 String []j=s.toArray(new String[s.size()]);
 for(String x:s){
-    if(x.equals("a")||x.equals("A")){
+    if(x.equals("a")||x.equals("A")||x.equals("an")||x.equals("An")){
     c++;
     continue;
     }
@@ -107,7 +107,6 @@ for(String x:s){
   }
   for(int i=0;i<j.length;i++){
  j[i]=j[i].replaceAll("⬧{2,}","⬧");
-  
   }
  for(String x:j){
   for(int i=0;i<x.length();i++){
@@ -122,6 +121,9 @@ for(String x:s){
 public int countWords(){
 words=s.size();
   return s.size();
+}
+public int wordAmt(){
+  return wordlist.size();
 }
 double getFleschScore(){
   flesch-=(1.015*((double)words/sentences));
@@ -150,6 +152,30 @@ wordlist.add(new Wordc(x));
 }
 went=false;
 }
+}
+void printWords(){
+for(Wordc x: wordlist){
+System.out.println(x.getWord()+" count: "+x.getCount());
+}
+System.out.println("Most occurances: "+wordlist.get(mostind));
+}
+Wordc getWord(int index){
+ return wordlist.get(index); 
+}
+int sortWordlist(){
+Wordc samp;
+for(int i=0;i<wordlist.size();i++){
+  samp=wordlist.get(i);  
+  for(int j=1;j<=i;j++){
+if(wordlist.get(i-j).getCount()>wordlist.get(i).getCount()){
+ // System.out.println("bigger"+wordlist.get(i-j).getCount()+wordlist.get(i-j).getWord());
+// System.out.println("smaller"+wordlist.get(i).getCount()+wordlist.get(i).getWord());
+wordlist.set(i,wordlist.get(i-j));
+wordlist.set(i-j,samp);
+i=i-j;
+}
+}
+}
 int ind=0;
 for(Wordc x: wordlist){
 if(x.getCount()>ind){
@@ -161,12 +187,7 @@ if(x.getWord().compareTo(wordlist.get(ind).getWord())<0){
 }
 }
 mostind=ind;
-}
-void printWords(){
-for(Wordc x: wordlist){
-System.out.println(x.getWord()+" count: "+x.getCount());
-}
-System.out.println("Most occurances: "+wordlist.get(mostind));
+return ind;
 }
 int getMost(){
 return mostind;
