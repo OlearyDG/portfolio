@@ -9,10 +9,12 @@ public class Words{
   ArrayList<Wordc>wordlist;
   double flesch=206.835;
   int mostind;
-public Words(){
+  String textfile;
+public Words(String t){
+  textfile=t;
 try{
-  scan=new Scanner(new File("C:\\Users\\Mango T. Shih-tzu\\Desktop\\wordlab\\empire.txt"));
-  scan.useDelimiter("[\\s\\W]");
+  scan=new Scanner(new File("Desktop/wordlab/"+t));
+  scan.useDelimiter("[\\s,./?><:;\"]");
 }catch(Exception e){
 System.out.println(e);
 }
@@ -57,7 +59,7 @@ int countSentences(){
   ArrayList<String>css=new ArrayList<String>();
   int c=0;
   try{
-  scan=new Scanner(new File("C:\\Users\\Mango T. Shih-tzu\\Desktop\\wordlab\\empire.txt"));
+  scan=new Scanner(new File("Desktop/wordlab/"+textfile));
   scan.useDelimiter("\\s");
 }catch(Exception e){
 System.out.println(e);
@@ -162,7 +164,7 @@ System.out.println("Most occurances: "+wordlist.get(mostind));
 Wordc getWord(int index){
  return wordlist.get(index); 
 }
-int sortWordlist(){
+void sortWordlist(){
 Wordc samp;
 for(int i=0;i<wordlist.size();i++){
   samp=wordlist.get(i);  
@@ -176,21 +178,23 @@ i=i-j;
 }
 }
 }
+}
+int getMost(){
 int ind=0;
 for(Wordc x: wordlist){
-if(x.getCount()>ind){
+if(x.getCount()>wordlist.get(ind).getCount()){
 ind=wordlist.indexOf(x);
 }else if(x.getCount()==ind){
 if(x.getWord().compareTo(wordlist.get(ind).getWord())<0){
   ind=wordlist.indexOf(x);
 }
+}else{
+ind++;
 }
 }
 mostind=ind;
+System.out.println("Most: "+wordlist.get(mostind));
 return ind;
-}
-int getMost(){
-return mostind;
 }
 String getGrade(){
 if(flesch>=90.0){
@@ -208,5 +212,8 @@ return "College";
 }else{
 return "College graduate";
 }
+}
+ArrayList<Wordc> getWordList(){
+return wordlist;
 }
 }
