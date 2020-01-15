@@ -1,5 +1,5 @@
-//mac location Desktop/wordlab/empire.txt or roosevelt.txt
-//location on my windows C:\\Users\\Mango T. Shih-tzu\\Desktop\\wordlab\\empire.txt or roosevelt.txt
+//mac location Desktop/wordlab/
+//location on my windows C:\\Users\\Mango T. Shih-tzu\\Desktop\\wordlab\\
 //The Empire Strikes Back from Lucasfilm/Disney and 20th Century Fox
 //Through the Brazillian Wilderness from Theodore Roosevelt
 public class Words{
@@ -13,7 +13,7 @@ public class Words{
 public Words(String t){
   textfile=t;
 try{
-  scan=new Scanner(new File("C:\\Users\\Mango T. Shih-tzu\\Desktop\\wordlab\\"+t));
+  scan=new Scanner(new File("Desktop/wordlab/"+t));
   scan.useDelimiter("[\\s,./?><:;\"]");
 }catch(Exception e){
 System.out.println(e);
@@ -25,17 +25,12 @@ public void toList(){
   int c=0;
 while(scan.hasNext()){
 s.add(scan.next());
-//println(s.get(c));
 c++;
 if(s.get(c-1).equals("")){
 s.remove(c-1);
 c--;
 }
-//println(s.get(c-1));
 }
-//for(String x:s){
-//println(x);
-//}
 scan.close();
 }
 int countLetters(){
@@ -59,7 +54,7 @@ int countSentences(){
   ArrayList<String>css=new ArrayList<String>();
   int c=0;
   try{
-  scan=new Scanner(new File("C:\\Users\\Mango T. Shih-tzu\\Desktop\\wordlab\\"+textfile));
+  scan=new Scanner(new File("Desktop/wordlab/"+textfile));
   scan.useDelimiter("\\s");
 }catch(Exception e){
 System.out.println(e);
@@ -88,7 +83,7 @@ c+=cv[i].length();
 return c;
 }
 int countSyllables(){
-  //⬧︎
+  //⬧ vowel replacement character 
 int c=0;
 String []j=s.toArray(new String[s.size()]);
 for(String x:s){
@@ -96,13 +91,11 @@ for(String x:s){
     c++;
     continue;
     }
- // for(int i=0;i<x.length();i++){
    if(countVowels(x)!=1){
   if(x.charAt(x.length()-1)=='e'||x.charAt(x.length()-1)=='E'){
   c--;
   }
    }
- // }
   }
   for(int i=0;i<j.length;i++){
   j[i]=j[i].replaceAll("[aeiouyAEIOUY]","⬧");
@@ -130,27 +123,19 @@ public int wordAmt(){
 double getFleschScore(){
   flesch-=(1.015*((double)words/sentences));
   flesch-=(84.6*((double)syllables/words));
-//flesch=(206.835-(1.015*(countWords()/countSentences()))-(84.6*(countSyllables()/countWords())));
 return flesch;
 }
 void wordCounter(){
   boolean went=false;
 for(String x:s){
 for(int i=0;i<wordlist.size();i++){
-   // if(x.toLowerCase().equals("dog")){
-   //println(y.getWord());
-    //y.addOne();
-   // }
 if(x.toLowerCase().equals(wordlist.get(i).getWord())){
   went=true;
 wordlist.get(i).addOne();
-}//else{
-//wordlist.add(new Wordc(x));
-//}
+}
 }
 if(!went){
 wordlist.add(new Wordc(x));
-//println(wordlist.get(wordlist.size()-1));
 }
 went=false;
 }
@@ -159,7 +144,6 @@ void printWords(){
 for(Wordc x: wordlist){
 System.out.println(x.getWord()+" count: "+x.getCount());
 }
-System.out.println("Most occurances: "+wordlist.get(mostind));
 }
 Wordc getWord(int index){
  return wordlist.get(index); 
@@ -170,8 +154,6 @@ for(int i=0;i<wordlist.size();i++){
   samp=wordlist.get(i);  
   for(int j=1;j<=i;j++){
 if(wordlist.get(i-j).getCount()>wordlist.get(i).getCount()){
- // System.out.println("bigger"+wordlist.get(i-j).getCount()+wordlist.get(i-j).getWord());
-// System.out.println("smaller"+wordlist.get(i).getCount()+wordlist.get(i).getWord());
 wordlist.set(i,wordlist.get(i-j));
 wordlist.set(i-j,samp);
 i=i-j;

@@ -2,8 +2,8 @@ import java.util.Scanner;
 import java.io.File;
 ArrayList word;
 ArrayList<ArrayList<String>> indexes;
-String file="african";
-Words w=new Words(file+".txt");
+String file="empire";
+Words w;
 int tests;
 int wordchart;
 double dtests;
@@ -12,44 +12,16 @@ boolean mouseReleased=false;
 ArrayList<Piegraph> arcs;
 int y;
 String [] amounts;
+boolean screen=true;
 void setup(){
+   size(1500,950);
   indexes=new ArrayList<ArrayList<String>>();
   arcs=new ArrayList<Piegraph>();
   amounts=new String[7];
   wordchart=0;
   y=695;
- w.toList();
- tests=w.countLetters();
- amounts[0]=tests+"";
- println(tests+" letters");
- tests=w.countVowels();
- amounts[1]=tests+"";
- println(tests+" vowels");
-  tests=w.countSentences();
-  amounts[2]=tests+"";
- println(tests+" sentences");
- tests=w.countSyllables();
- amounts[3]=tests+"";
- println(tests+" syllables"); 
- tests=w.countWords();
- amounts[4]=tests+"";
- println(tests+" words"); 
- dtests=w.getFleschScore();
- amounts[5]=dtests+"";
- println(dtests+" Flesch score"); 
- amounts[6]=w.getGrade();
- w.wordCounter();
- w.sortWordlist();
- w.printWords();
- w.countWords();
- w.getMost();
- size(1500,950);
- ellipseMode(CENTER);
- makeArcs();
- makeWordChart();
  rectMode(CORNER);
  background(0);
- //noLoop();
 }
 void makeArcs(){
 float lastd=0;
@@ -63,11 +35,59 @@ float lastd=0;
 }
 void mouseReleased(){
 mouseReleased=true;
+if(!screen){
 run=true;
 }
+}
 void draw(){
-  // clear();
-//System.out.println(run);
+  clear();
+  //text("x: "+mouseX+" Y: "+mouseY,mouseX,mouseY);
+  if(screen){
+    fill(255);
+  textSize(70);
+  text("Text Counter and Analyzer",280,70);
+  textSize(40);
+  fill(145);
+  rect(480,136,500,150);
+  fill(255);
+  text("The Empire Strikes Back ",500,200);
+  text("from Lucasfilm",510,250);
+  fill(145);
+  rect(480,336,500,150);
+  fill(255);
+  textSize(27);
+  text("Through the Brazillian Wilderness",500,400);
+  text("By Theodore Roosevelt",510,460);
+  fill(145);
+  rect(480,536,500,150);
+  fill(255);
+  textSize(27);
+  text("African Game Trails (Chapters I-V)",500,600);
+  text("By Theodore Roosevelt",510,650);
+  text("Note: Empire is the shortest, Through the Brazillian Wildernes takes a while!",200,860);
+    if(mousePressed){
+    if(mouseReleased){
+  if(mouseX>=500&&mouseX<=981){
+  if(mouseY>=140&&mouseY<=289){
+    System.out.println("click");
+    file="empire";
+    runCalculations();
+       screen=false;
+  }
+  }else if(mouseY>=340&&mouseY<=480){
+     file="roosevelt";
+    runCalculations();
+       screen=false;
+  }else if(mouseY>=540&&mouseY<=688){
+     file="african";
+    runCalculations();
+    screen=false;
+  }
+  }
+    }
+    mouseReleased=false;
+  }
+  else if(screen==false){
   fill(255);
   if(mousePressed){
     if(mouseReleased){
@@ -123,11 +143,9 @@ showWords(wordchart);
   rect(1220,850,130,50);
   fill(145);
  text("Next",1262,882);
- //println("y "+y);
  run=false;
   }
-//textSize(20);
-  //text("X: "+mouseX+"Y: "+mouseY,mouseX,mouseY);
+}
 }
 void makeWordChart(){
 ArrayList<Wordc> temp=w.getWordList();
@@ -161,14 +179,34 @@ void showWords(int wg){
   y+=35;
 }
 }
-/*
-for(int i=0;i<temp.size();i++){
-if(textWidth(wordrows[row])<=900){
-wordrows[row]+=temp.get(i).getWord();
-}else if(row>4){
-row++;
-}else if(row==4){
-
+void runCalculations(){
+w.toList();
+   w=new Words(file+".txt");
+ tests=w.countLetters();
+ amounts[0]=tests+"";
+ println(tests+" letters");
+ tests=w.countVowels();
+ amounts[1]=tests+"";
+ println(tests+" vowels");
+  tests=w.countSentences();
+  amounts[2]=tests+"";
+ println(tests+" sentences");
+ tests=w.countSyllables();
+ amounts[3]=tests+"";
+ println(tests+" syllables"); 
+ tests=w.countWords();
+ amounts[4]=tests+"";
+ println(tests+" words"); 
+ dtests=w.getFleschScore();
+ amounts[5]=dtests+"";
+ println(dtests+" Flesch score"); 
+ amounts[6]=w.getGrade();
+ w.wordCounter();
+ w.sortWordlist();
+ w.printWords();
+ w.countWords();
+ w.getMost();
+ ellipseMode(CENTER);
+ makeArcs();
+ makeWordChart();
 }
-}
-*/
