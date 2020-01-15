@@ -13,7 +13,7 @@ public class Words{
 public Words(String t){
   textfile=t;
 try{
-  scan=new Scanner(new File("Desktop/wordlab/"+t));
+  scan=new Scanner(new File("C:\\Users\\Mango T. Shih-tzu\\Desktop\\wordlab\\"+t));
   scan.useDelimiter("[\\s,./?><:;\"]");
 }catch(Exception e){
 System.out.println(e);
@@ -59,7 +59,7 @@ int countSentences(){
   ArrayList<String>css=new ArrayList<String>();
   int c=0;
   try{
-  scan=new Scanner(new File("Desktop/wordlab/"+textfile));
+  scan=new Scanner(new File("C:\\Users\\Mango T. Shih-tzu\\Desktop\\wordlab\\"+textfile));
   scan.useDelimiter("\\s");
 }catch(Exception e){
 System.out.println(e);
