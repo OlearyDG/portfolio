@@ -14,7 +14,7 @@ public Words(String t){
   textfile=t;
 try{
   scan=new Scanner(new File("Desktop/wordlab/"+t));
-  scan.useDelimiter("[\\s,./?><:;\"]");
+  scan.useDelimiter("[\\s,./?><:;\\-\\_\\^(){}\\[\\]\"]");
 }catch(Exception e){
 System.out.println(e);
 }

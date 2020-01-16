@@ -40,9 +40,10 @@ run=true;
 }
 }
 void draw(){
-  clear();
+ // clear();
   //text("x: "+mouseX+" Y: "+mouseY,mouseX,mouseY);
   if(screen){
+    clear();
     fill(255);
   textSize(70);
   text("Text Counter and Analyzer",280,70);
@@ -66,14 +67,11 @@ void draw(){
   text("By Theodore Roosevelt",510,650);
   text("Note: Empire is the shortest, Through the Brazillian Wildernes takes a while!",200,860);
     if(mousePressed){
-    if(mouseReleased){
   if(mouseX>=500&&mouseX<=981){
   if(mouseY>=140&&mouseY<=289){
-    System.out.println("click");
     file="empire";
     runCalculations();
        screen=false;
-  }
   }else if(mouseY>=340&&mouseY<=480){
      file="roosevelt";
     runCalculations();
@@ -83,7 +81,7 @@ void draw(){
     runCalculations();
     screen=false;
   }
-  }
+ }
     }
     mouseReleased=false;
   }
@@ -145,7 +143,7 @@ showWords(wordchart);
  text("Next",1262,882);
  run=false;
   }
-}
+  }
 }
 void makeWordChart(){
 ArrayList<Wordc> temp=w.getWordList();
@@ -155,9 +153,9 @@ String test="";
 indexes.add(new ArrayList<String>());
 for(int i=temp.size()-1;i>=0;i--){
   String swidth=(test+"Word: "+temp.get(i).getWord()+" Appearances: "+temp.get(i).getCount()+" Rank: "+(temp.size()-i)+"     ");
-if(textWidth(swidth)<=900){
+if(textWidth(swidth)<=1800){
   test+="Word: "+temp.get(i).getWord()+" Appearances: "+temp.get(i).getCount()+" Rank: "+(temp.size()-i)+"     ";
-}else if(textWidth(swidth)>900){
+}else if(textWidth(swidth)>1800){
   i++;
 indexes.get(list).add(test);
 test="";
@@ -180,8 +178,8 @@ void showWords(int wg){
 }
 }
 void runCalculations(){
-w.toList();
    w=new Words(file+".txt");
+  w.toList();
  tests=w.countLetters();
  amounts[0]=tests+"";
  println(tests+" letters");
