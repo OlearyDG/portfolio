@@ -10,8 +10,12 @@ public class Word implements Comparable<Word>
 
   public int compareTo( Word rhs )
   {    
-    if(
-    return 0;
+    int l=word.length()-rhs.toString().length();
+    if(l!=0){
+    return l;
+    }else{
+    return word.compareTo(rhs.toString());
+    }
   }
 
   public String toString()

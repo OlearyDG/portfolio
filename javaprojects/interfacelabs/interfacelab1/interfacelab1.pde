@@ -27,6 +27,7 @@ void setup(){
     for (Word word : words1) {
       out.println(word);
     }
+    scan.close();
 }
     
     
