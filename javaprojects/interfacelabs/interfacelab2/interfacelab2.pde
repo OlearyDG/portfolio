@@ -30,11 +30,12 @@ for(String x:list){
 s+=x;
 }
 data=s.split("\\s");
-for(String x:data){
-println(x);
-}
 for(int i=0;i<data.length;i+=4){
 people.add(new Person(Integer.parseInt(data[i]),Integer.parseInt(data[i+1]),Integer.parseInt(data[i+2]),data[i+3]));
+}
+Collections.sort(people);
+for(Person x:people){
+println(x.getName());
 }
 //for(Person x:people){
 //println(x.toString());

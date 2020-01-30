@@ -15,11 +15,19 @@ public class Person implements Comparable<Person>
 
   public int compareTo( Person o )
   {
-    int y=myYear-o.getYear();
-    int m=myMonth-o.getMonth();
-    int d=myDay=o.getDay();
+    int y=o.getYear()-myYear;
+    int m=o.getMonth()-myMonth;
+    int d=o.getDay()-myDay;
     String n=o.getName();
-     return 0;
+    if(y!=0){
+    return y;
+    }else if(m!=0){
+    return m;
+    }else if(d!=0){
+    return d;
+    }else{
+    return n.compareTo(myName);
+    }
   }
 int getYear(){
 return myYear;
