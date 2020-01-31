@@ -4,13 +4,14 @@ class SiteName implements Comparable<SiteName>
   String [] sites;
   public SiteName(String n){
   name=n;
-  sites=n.split(".");
+  //println(name);
+  sites=name.split("\\W");
   for(String x:sites){
-  println(x+"ff");
+  println(x);
   }
   }
   int compareTo(SiteName s){
-    int n=s.getDomain().compareTo("ff");//sites[1]);
+    int n=s.getDomain().compareTo(sites[1]);
   if(n!=0){
     return n;
   }else{
@@ -21,7 +22,6 @@ class SiteName implements Comparable<SiteName>
  return name;
  }
  String getDomain(){
-   return "oor";
- //return sites[1];
+ return sites[1];
  }
 }
