@@ -6,16 +6,16 @@ class SiteName implements Comparable<SiteName>
   name=n;
   //println(name);
   sites=name.split("\\W");
-  for(String x:sites){
-  println(x);
-  }
+  //for(String x:sites){
+ // println(x);
+ // }
   }
   int compareTo(SiteName s){
-    int n=s.getDomain().compareTo(sites[1]);
+    int n=sites[1].compareTo(s.getDomain());
   if(n!=0){
     return n;
   }else{
-  return s.getName().compareTo(name);
+  return name.compareTo(s.getName());
   }
 }
  String getName(){

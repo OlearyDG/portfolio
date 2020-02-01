@@ -12,7 +12,7 @@ void setup(){
   slist=new ArrayList<SiteName>();
   list=new ArrayList<String>();
   try{
-scan=new Scanner(new File("Desktop/interfacelabs/interfacelab3/text.txt"));
+scan=new Scanner(new File("C:\\Users\\Mango T. Shih-tzu\\Desktop\\interfacelabs\\interfacelab3\\text.txt"));//"Desktop/interfacelabs/interfacelab3/text.txt"));
 //scan=new Scanner(test);
   }catch(Exception e){
     println(e);
@@ -32,8 +32,8 @@ scan=new Scanner(new File("Desktop/interfacelabs/interfacelab3/text.txt"));
   slist.add(new SiteName(x));
   }
   Collections.sort(slist);
- // for(SiteName x:slist){
-  //println(x.getName());
-  //}
+ for(SiteName x:slist){
+  println(x.getName());
+  }
   scan.close();
   }
