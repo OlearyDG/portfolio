@@ -2,6 +2,7 @@ public class MovieList{
 ArrayList <Movie> movies;
 ListIterator<Movie> it;
 Scanner scan;
+ArrayList<Integer> sp;
 public MovieList(){
 movies=new ArrayList<Movie>();
 }
@@ -44,12 +45,14 @@ public void sort(){
 Collections.sort(movies);
 }
 public ArrayList<Integer> search(String s){
-  ArrayList<Integer> sp=new ArrayList<Integer>();
+sp=new ArrayList<Integer>();
 for(int i=0;i<movies.size();i++){
-if(movies.get(i).toString().contains(s)){
+if(movies.get(i).toString().toLowerCase().contains(s.toLowerCase())){
+// println(i);
 sp.add(i);
 }
 }
+println(sp);
 return sp;
 }
 public double average(){

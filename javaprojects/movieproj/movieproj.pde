@@ -2,13 +2,14 @@ import java.util.*;
 MovieList movs;
 String s;
 Boolean sent;
+  ArrayList<Integer> temp ;
 void setup(){
   size(500,500);
   s="";
   sent=false;
 movs=new MovieList();
 movs.loadMovies();
-movs.showMovies();
+//movs.showMovies();
 }
 void draw(){
   background(0);
@@ -22,12 +23,9 @@ fill(0);
 text(s,26,148);
 }
 void keyPressed(){
-  search();
   if(key==ENTER){
-sent=true;
-s="";
-}
-if(key==''){
+  search();
+}else if(key==''){
   if(s.length()!=0&&s.length()!=1){
 s=s.substring(0,s.length()-2);
   }else{
@@ -35,14 +33,14 @@ s=s.substring(0,s.length()-2);
   }
 }
   s+=""+key;
+
 }
 void search(){
-  ArrayList<Integer> temp;
-if(sent){
 temp=movs.search(s);
+  println(temp);
 for(Integer x:temp){
 println(x);
 }
-}
-sent=false;
+s="";
+key='';
 }
