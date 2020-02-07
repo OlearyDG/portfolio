@@ -45,10 +45,10 @@ public void sort(){
 Collections.sort(movies);
 }
 public ArrayList<Integer> search(String s){
+  println(s);
 sp=new ArrayList<Integer>();
 for(int i=0;i<movies.size();i++){
 if(movies.get(i).toString().toLowerCase().contains(s.toLowerCase())){
-// println(i);
 sp.add(i);
 }
 }
