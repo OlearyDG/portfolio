@@ -15,11 +15,11 @@ movs.loadMovies();
 }
 void draw(){
   background(0);
-  fill(255);
+  fill(200,255,60);
   text("X:" +mouseX+" Y: "+mouseY,mouseX,mouseY);
   text("X:" +mouseX+" Y: "+mouseY,mouseX,mouseY);
 //text(""+sent,200,200);
-fill(255);
+fill(155,0,200);
 rect(25,136,200,15);
 fill(0);
 textSize(13);
@@ -64,15 +64,32 @@ double avg=0;
 }
 void show(){
   int x=500;
-  int y,y2,y3,y4,y5=0;
+  int y=196,y2,y3,y4,y5=0;
   int i=0;
+  int rows=13;
 if(search){
 text("Word: "+s,30,71);
 String avgs=arAvg(temp)+"";
 if(avgs.length()>=4){
 avgs=avgs.substring(0,4);
 }
+if(temp.size()==0){
 text("Average Score: "+avgs,30,91);
-text(movs.get(temp.get(i)).toString(),x,196);
+text("",x,196);
+}else{
+text("Average Score: "+avgs,30,91);
+//text(movs.get(temp.get(i)).toString(),x,196);
+  while(temp.size()<13){
+  rows--;
+  }
+  for(int j=0;j<=rows;j++){
+    y+=20;
+    text(movs.get(temp.get(j)).toString(),x,y);
+    x+=6;
+    if(j==rows){
+    y=196;
+    }
+}
+}
 }
 }
