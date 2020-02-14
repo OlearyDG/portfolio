@@ -8,7 +8,7 @@ movies=new ArrayList<Movie>();
 }
 public void loadMovies(){
   try{
-scan=new Scanner(new File("Desktop/movieproj/movies.txt"));
+scan=new Scanner(new File("Desktop/movieproj/movies.txt"));//"C:\\Users\\Mango T. Shih-tzu\\Desktop\\movieproj\\movies.txt"
   }catch(Exception e){
   println(e);
   }
@@ -62,4 +62,5 @@ k+=x.getScore();
 }
 return k/movies.size();
 }
+
 }
