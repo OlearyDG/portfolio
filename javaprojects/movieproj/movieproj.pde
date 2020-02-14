@@ -36,7 +36,7 @@ textSize(13);
 show();
 }
 void keyPressed(){
-  if(key==ENTER){
+  if(key==ENTER||key==RETURN){
     robs=true;
     search=true;
   search();
@@ -97,7 +97,7 @@ printRev();
 public void printRev(){
 if(dispr){
   if(keyPressed){
-    if(key==ENTER){
+    if(key==ENTER||key==RETURN){
     sec=0;
     }
   }
