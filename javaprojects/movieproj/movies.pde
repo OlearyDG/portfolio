@@ -6,7 +6,7 @@ this.sc=sc;
 this.rev=rev;
 }
 public int compareTo(Movie m){
-return sc=m.getScore();
+return sc-m.getScore();
 }
 public int getScore(){
 return sc;
