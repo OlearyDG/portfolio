@@ -23,6 +23,8 @@ public class MathSet
     nums.add(Integer.parseInt(x));
     }
     one=new TreeSet<Integer>(nums);
+    nums=null;
+     nums= new ArrayList<Integer>();
     h = Arrays.asList(t.split(" "));
     for(String x: h){
     nums.add(Integer.parseInt(x));
@@ -43,24 +45,32 @@ public class MathSet
   {
     Set<Integer> j=new TreeSet<Integer>();
      j.addAll(one);
-     println(j);
      j.retainAll(two);
     return j;
   }
 
   public Set<Integer> differenceAMinusB()
   {
-    return null;
+   Set<Integer> j=new TreeSet<Integer>();
+   j.addAll(one);
+    j.removeAll(two);
+    return j;
   }
 
   public Set<Integer> differenceBMinusA()
   {
-    return null;
+   Set<Integer> j=new TreeSet<Integer>();
+   j.addAll(two);
+    j.removeAll(one);
+    return j;
   }
   
   public Set<Integer> symmetricDifference()
   {    
-    return null;
+     Set<Integer> j=union();
+     Set<Integer> i=intersection();
+     j.removeAll(i);
+    return j;
   }  
   
   public String toString()

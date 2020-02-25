@@ -8,4 +8,7 @@ void setup(){
 un=new MathSet("1 2 3 4 5","4 5 6 7 8");
 println(un.union());
 println(un.intersection());
+println(un.differenceAMinusB());
+println(un.differenceBMinusA());
+println(un.symmetricDifference());
 }
