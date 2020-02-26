@@ -19,9 +19,16 @@ public class UniquesDupes
    Set<String> uniques = new TreeSet<String>();
    List<String> temp=new ArrayList<String>(Arrays.asList(input.split(" ")));
    for(String x:temp){
-   uniques.add(x);
+   int count=0;
+   for(String y:temp){
+   if(x.equals(y)){
+   count++;
    }
-   
+   }
+    if(count>=2){
+   uniques.add(x);
+    }
+   }
   return uniques;
 }
 }
