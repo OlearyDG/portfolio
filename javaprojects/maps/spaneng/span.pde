@@ -2,22 +2,30 @@ public class SpanishToEnglish
 {
   private Map<String,String> pairs;
 String [] str;
+ArrayList <String> s;
   public SpanishToEnglish()
   {
     pairs=new TreeMap<String,String>();
 str=loadStrings("text.txt");
-println(str);
-println("test"+str[1]);
-for(int i=1;i<str.length;i+=2){
-pairs.put(str[i-1],str[i]);
+s=new ArrayList <String>();
+//println(str);
+for(String x:str){
+String [] d=x.split(" ");
+for(String y:d){
+s.add(y);
 }
-//println(pairs);
+}
+//println(s.toString());
+for(int i=1;i<s.size();i+=2){
+pairs.put(s.get(i-1),s.get(i));
+}
+println(pairs);
   }
 
   public void putEntry(String entry)
   {
     String[] list = entry.split(" ");
-
+pairs.put(list[0],list[1]);
 
 
 
@@ -28,12 +36,13 @@ pairs.put(str[i-1],str[i]);
   {
     Scanner chop = new Scanner(sent);
     String output ="";
-
-
-
-
-
-
+ArrayList <String> s=new ArrayList<String>();
+while(chop.hasNext()){
+s.add(chop.next());
+}
+for(String x:s){
+output+=pairs.get(x)+" ";
+}
     return output;
   }
 
