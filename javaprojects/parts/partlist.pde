@@ -11,51 +11,43 @@ for(String x:parts){
 part.add(new Part(x));
 }
 for(Part x:part){
-  if(partsMap.containsKey(x)){
-  
+  int c=-1;
+  for(Part y:part){
+  if(x.compareTo(y)==0){
+  c++;
   }
+  }
+  partsMap.put(x,c);
 }
 
   }
   
   public PartList(String fileName)
   {
-    //loadStrings() or:
-    try
-    {
-      Scanner file = new Scanner(new File("lab08d.dat"));
-      //add code here to read from the file 
-      //and add Parts to the map
-
-
-
-
-    }
-    catch( IOException e )  //Most specific exceptions must be listed 1st
-    {
-      out.println(e);
-    }
-    catch( RuntimeException e )
-    {
-      out.println(e);
-    }
-    catch( Exception e )
-    {
-      out.println(e);
-    }
-    finally
-    {
-      //no code needed here
-    }
+     partsMap=new TreeMap<Part, Integer>();
+String[] parts=loadStrings(fileName);
+ArrayList<Part> part=new ArrayList<Part>();
+for(String x:parts){
+part.add(new Part(x));
+}
+for(Part x:part){
+  int c=0;
+  for(Part y:part){
+  if(x.compareTo(y)==0){
+  c++;
+  }
+  }
+  partsMap.put(x,c);
+}
   }
   
   public String toString()
   {
     String output="";
-
-
-
-
+TreeSet<Part> k=new TreeSet<Part>(partsMap.keySet());
+for(Part x:k){
+output+=x.toString()+": "+partsMap.get(x)+"\n";
+}
     return output;
   }
 }
