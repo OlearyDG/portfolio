@@ -7,17 +7,19 @@ TreeMap<String,ArrayList<String>> map;
  String[]s=x.split("[\\s,\\(\\)]");
 ArrayList<String> wors=new ArrayList<String>();
 for(String q:s){
-  if(!x.equals(null)&&!x.equals("")&&!x.equals(" ")){
+ if(!q.equals(null)){ //<>//
   wors.add(q);
-  }
+ }
 }
 s=wors.toArray(s);
+println(s);
  for(int i=0;i<s.length;i++){
+
   boolean test=false;
    if(s[i].equals(null)||s[i].equals("")||s[i].equals(" ")){
      test=true;
      i--;
-   }
+  }
    String end="";
    if(!map.containsKey(s[i])){
    map.put(s[i],new ArrayList<String>());
