@@ -10,14 +10,27 @@ for(String x:w){
   wors.add(x);
 }
 for(String x:wors){
-String s[]=x.split("\\s");
-for(String y:s)
-println(y);
+String s[]=x.split("[\\s\\[\\]\\(\\)\\.\\!\\/\\,]");
+for(String y:s){
+if(!y.equals("")){
+  if(!map.containsKey(y)){
+map.put(y, new ArrayList<String>());
 }
- for(String x:w){
- //String[]s=x.split(" ");
- //println(x);
- }
+}
+}
+}
+String [] keys=new String[map.keySet().size()];
+map.keySet().toArray(keys);
+for(int i=0;i<keys.length;i++){
+try{
+map.get(keys[i]).add(keys[i+1]);
+}catch(Exception e){
+map.get(keys[i]).add(keys[0]);
+}
+}
+for(String x:map.keySet()){
+println(x+" "+map.get(x));
+}
 /*
 for(String q:s){
  if(!q.equals(null)){ //<>//
