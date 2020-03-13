@@ -57,5 +57,63 @@ lasts=map.get(lasts).get(ind);
 }
 return out;
 }
+void playSong(){
+try {
+      // * Open a synthesizer
+      Synthesizer synth = MidiSystem.getSynthesizer();
+      synth.open();
+      channels = synth.getChannels();
 
+      // * Play some notes
+      play("6D",  1000);
+      rest(500);
+      
+      play("6D",  300);
+      play("6C#", 300);
+      play("6D",  1000);
+      rest(500);
+      
+      play("6D",  300);
+      play("6C#", 300);
+      play("6D",  1000);
+      play("6E",  300);
+      play("6E",  600);
+      play("6G",  300);
+      play("6G",  600);
+      rest(500);
+      
+      // * finish up
+      synth.close();
+    }
+    catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+}
+private void play(String note, int duration) throws InterruptedException
+  {
+      // * start playing a note
+      channels[INSTRUMENT].noteOn(id(note), VOLUME );
+      // * wait
+      Thread.sleep( duration );
+      // * stop playing a note
+      channels[INSTRUMENT].noteOff(id(note));
+  }
+  
+  /**
+   * Plays nothing for the given duration
+   */
+  private  void rest(int duration) throws InterruptedException
+  {
+    Thread.sleep(duration);
+  }
+  
+  /**
+   * Returns the MIDI id for a given note: eg. 4C -> 60
+   * @return
+   */
+  private int id(String note)
+  {
+    int octave = Integer.parseInt(note.substring(0, 1));
+    return notes.indexOf(note.substring(1)) + 12 * octave + 12;  
+  }
 }
