@@ -1,18 +1,36 @@
-//https://docs.oracle.com/javase/7/docs/api/javax/sound/midi/MidiChannel.html#noteOn(int,%20int)
-//https://gist.github.com/pbloem/d29bf80e69d333415622
-//https://www.geeksforgeeks.org/converting-text-speech-java/
 import java.util.*;
 import java.io.*;
-import javax.sound.midi.MidiSystem;
-import javax.sound.midi.Synthesizer;
-import javax.sound.midi.MidiChannel;
-private static List<String> notes = Arrays.asList("C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B");
-  private static MidiChannel[] channels;
-  private static int INSTRUMENT = 0; // 0 is a piano, 9 is percussion, other channels are for other instruments
-  private static int VOLUME = 80; // between 0 et 127
 Wordlist w;
+String chorus;
+String[] verse;
+String song;
+PImage[] covers;
+int x=700,y=365;
+int cov=(int)(Math.random()*12);
 void setup(){
+  size(700,700);
+  covers=new PImage[12];
+  for(int i=0;i<12;i++){
+  covers[i]= loadImage(i+1+".jpg");
+  }
+  song="";
   w=new Wordlist();
-  println(w.generate());
-  w.playSong();
+  chorus=w.generate(150);
+  verse=new String[]{w.generate(150),w.generate(150),w.generate(150)};
+  for(String x:verse){
+  song+="(Verse) "+x+"(Chorus) "+chorus;
+  }
+  println(song);
+}
+void draw(){
+  background(0);
+image(covers[cov],0,0,700,700);
+fill(0);
+rect(0,350,700,25);
+fill(255);
+text(song,x,y);
+x-=2;
+if(x<=-textWidth(song)-2){
+x=700;
+}
 }
