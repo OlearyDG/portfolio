@@ -9,7 +9,7 @@ Tendril[] ten;
     this.y=y;
     ten=new Tendril[NUM_STEMS];
     for(int i=0;i<ten.length;i++){
-      stroke(c);
+      flow.stroke(c);
     ten[i]=new Tendril(len,(float)(Math.random()*2*PI),x,y);
     ten[i].show();
     if(len>1){
