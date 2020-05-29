@@ -22,42 +22,56 @@ public class BinarySearchTree<T extends Comparable<T>> {
             tree.setRight(add(val, tree.getRight()));
         return tree;
     }
-
+public String inOrder2(TreeNode tree){
+  String s="";
+        if(tree!=null){
+      s+=inOrder2(tree.getLeft());
+      s+=tree.getValue();
+      s+=inOrder2(tree.getRight());
+    }
+    return s;
+    }
     public void inOrder() {
         inOrder(root);
     }
     private void inOrder(TreeNode tree) {//2
-      println(tree.getLeft());
+      if(tree!=null){
+      inOrder(tree.getLeft());
       println(tree.getValue());
-      println(tree.getRight());
+      inOrder(tree.getRight());
     }
-
+    }
     public void preOrder() {
         preOrder(root);
     }
     private void preOrder(TreeNode tree) {//3
+     if(tree!=null){
        println(tree.getValue());
-       println(tree.getLeft());
-       println(tree.getRight());
-       
+       preOrder(tree.getLeft());
+       preOrder(tree.getRight());
+     }
     }
 
     public void postOrder() {
         postOrder(root);
     }
     private void postOrder(TreeNode tree) {//4
-       println(tree.getLeft());
-       println(tree.getRight());
+     if(tree!=null){
+       postOrder(tree.getLeft());
+       postOrder(tree.getRight());
        println(tree.getValue());
+    }
     }
 
     public void revOrder() {
         revOrder(root);
     }
     public void revOrder(TreeNode tree) {//5
-        println(tree.getRight());
+     if(tree!=null){
+        revOrder(tree.getRight());
         println(tree.getValue());
-        println(tree.getLeft());
+        revOrder(tree.getLeft());
+    }
     }
 
     public void levelOrder() {
@@ -110,7 +124,7 @@ public int getHeight() {
     }
     public int getHeight(TreeNode tree) {//9
 if(tree==null){
-         return 0;
+         return -1;
        } else{
        return 1+Math.max(getHeight(tree.getRight()),getHeight(tree.getLeft()));
       }    
@@ -153,7 +167,7 @@ if(tree==null){
         }
         return false;
     }
-
+/*
     public void remove(T val) {
         root = remove(val, root);
     }
@@ -202,13 +216,11 @@ if(tree==null){
        
        
     }
-
+*/
     public String toString() {
         return toString(root);
     }
     private String toString(TreeNode tree) {//15
-        String s="";
-        
-        
+        return inOrder2(tree);
     }
 }
