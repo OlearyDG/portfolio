@@ -19,7 +19,6 @@ void setup() {
   size(800, 800);
   current=tree.buildTree();
   first=current;
-  String s=(String)current.getValue();
   sc=new Scenes();
 }
 void draw() {
@@ -40,6 +39,7 @@ void draw() {
   text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY);
   //changeScenes();
 }
+/*
 void changeScenes() {
   if (introSlide==true) {
     sc.scene0();
@@ -51,8 +51,8 @@ void changeScenes() {
     introSlide=true;
   }
 }
-
-void keyPressed() {
+*/
+void keyPressed() { //<>//
    //s+=n;
   if(won==false){
   if(type2){
@@ -64,15 +64,25 @@ void keyPressed() {
     if(type2==false){
       q=n;
         type=false;
+        s="Beatles Game!";
         println("q "+q+" name "+name);
         //println(temp.getRight());
          //temp=new TreeNode(temp.getValue(),temp,null);
         //new TreeNode(q,new TreeNode(),new TreeNode("Is it \""+name+" \"?")));
         //temp=new TreeNode(temp.getValue(),temp.getLeft(),new TreeNode(q,new TreeNode(),new TreeNode("Is it \""+name+" \"?")));
-       // println(temp.getValue());
-        //temp=new TreeNode(q,temp.getLeft(),new TreeNode("Is it \""+name+" \"?"));
+       //println(current.getLeft().getValue());
+       //TreeNode t=first;
+      // while(t!=null){
+      // t=t.getRight();
+      // if(t.getRight()==null){
+      // t.setRight(new TreeNode(q,temp,new TreeNode("Is it \""+name+" \"?")));
+       //}
+     //  break;
+       //}
+        //current=new TreeNode(q,temp,new TreeNode("Is it \""+name+" \"?"));
+       temp.setRight(new TreeNode(q,temp,new TreeNode("Is it \""+name+" \"?")));
         current=first;
-        won=true;
+        //won=true;
     }else{
     name=n;
     }
@@ -98,6 +108,7 @@ n=n.substring(0,n.length()-1);
     }
     try{
       //if(start==false){
+        temp=current;
       current= current.getLeft();
       //}
     }catch (Exception e){
@@ -112,7 +123,9 @@ n=n.substring(0,n.length()-1);
     } 
     try{
       //if(start==false){
+       // if(current.getRight()!=null){
       temp=current;
+        //}
       println("temp"+temp.getValue());
       current = current.getRight();
       println("cur"+current.getValue());
@@ -123,8 +136,9 @@ n=n.substring(0,n.length()-1);
 }else if(won){
   println("test");
 won=false;
-s="Beatles game!";
+//s="Beatles game!";
 current=first;
+s=(String)current.getValue();
 }
 //start=false;
 }
